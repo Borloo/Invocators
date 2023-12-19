@@ -1,30 +1,28 @@
-﻿using System;
+﻿using Invocators.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Invocators.Classes
 {
     internal class Invocator
     {
-        private int maximumLife { get; set; }
-        private int currentLife { get; set; }
-        private List<Invocation> invocations;
+        private int MaximumLife { get; set; }
+        private int CurrentLife { get; set; }
+        private List<BaseInvocation> Invocations;
 
         public Invocator(int maximumLife)
         {
-            this.maximumLife = maximumLife;
-            this.currentLife = maximumLife;
-            this.invocations = new List<Invocation>();
+            MaximumLife = maximumLife;
+            CurrentLife = maximumLife;
+            Invocations = new List<BaseInvocation>();
         }
 
-        public void Summon(Invocation invocation)
+        public void Summon(BaseInvocation invocation)
         {
-            if (this.currentLife > 0)
+            if (this.CurrentLife > 0)
             {
-                this.invocations.Add(invocation);
-                Console.WriteLine("Succes summon");
+                this.Invocations.Add(invocation);
+                Console.WriteLine("Success summon");
             }
             else
             {
@@ -32,30 +30,30 @@ namespace Invocators.Classes
             }
         }
 
-        public void GiveOrder(Invocation invocation, string order)
+        public void GiveOrder(BaseInvocation invocation, string order)
         {
-            if (this.invocations.Contains(invocation))
+            if (this.Invocations.Contains(invocation))
             {
-                Console.WriteLine($"Order give to {invocation.GetType().Name}: {order}");
+                Console.WriteLine($"Order given to {invocation.GetType().Name}: {order}");
             }
             else
             {
-                Console.WriteLine("Invocation doens't exist in list of invocations");
+                Console.WriteLine("Invocation doesn't exist in the list of invocations");
             }
         }
 
         public void ManageRoundFight()
         {
-            foreach (var invocation in this.invocations)
+            foreach (var invocation in this.Invocations)
             {
-                Console.WriteLine($"{invocation.GetType().Name} attack!");
-                invocation.Attack(this.GetRandomTarget());
+                Console.WriteLine($"{invocation.GetType().Name} attacks!");
+                invocation.MakeAttack(GetRandomTarget());
             }
         }
 
-        private Invocation GetRandomTarget()
+        private BaseInvocation GetRandomTarget()
         {
-            return this.invocations[0];
+            return this.Invocations[0];
         }
     }
 }
