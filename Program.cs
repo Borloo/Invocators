@@ -1,5 +1,5 @@
 ﻿using Invocators.Classes;
-using Invocators.Models.Invocations;
+using Invocators.Classes.Invocations;
 using System;
 
 namespace Invocators
@@ -13,9 +13,12 @@ namespace Invocators
 
             // Invocation d'un guerrier
             Warrior warrior = new Warrior();
+            Guardian guardian = new Guardian();
             invocator.Summon(warrior);
+            invocator.Summon(guardian);
 
             // Test d'une attaque
+            invocator.ManageRoundFight();
             invocator.ManageRoundFight();
 
             // Affichage de l'état après l'attaque

@@ -36,6 +36,7 @@ namespace Invocators.Models
                 {
                     Console.WriteLine($"{GetType().Name} attack {targetInvocation.GetType().Name} but miss!");
                 }
+                Console.WriteLine(attackDelta);
                 this.CurrentAttackNumber--;
             }
         }
