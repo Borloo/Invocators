@@ -21,11 +21,15 @@ namespace Invocators.Models
 
         public void MakeAttack(BaseInvocation targetInvocation)
         {
+            Console.WriteLine("Current Attack : ", this.CurrentAttackNumber);
             if (this.CurrentAttackNumber > 0 && targetInvocation.CurrentLife > 0)
             {
                 int attackRoll = this.CalculateAttackRoll();
                 int defenseRoll = this.CalculateDefenseRoll();
-                int attackDelta = attackRoll - defenseRoll;
+                int attackDelta = defenseRoll - attackRoll;
+
+
+                Console.WriteLine(attackDelta);
                 if (attackDelta > 0)
                 {
                     int damage = this.CalculateDamage(attackDelta);
@@ -36,7 +40,7 @@ namespace Invocators.Models
                 {
                     Console.WriteLine($"{GetType().Name} attack {targetInvocation.GetType().Name} but miss!");
                 }
-                Console.WriteLine(attackDelta);
+                //Console.WriteLine(attackDelta);
                 this.CurrentAttackNumber--;
             }
         }
@@ -62,7 +66,7 @@ namespace Invocators.Models
 
         private int CalculateDamage(int attackDelta)
         {
-            return (attackDelta * this.Damages) / 100;
+            return attackDelta * this.Damages / 100;
         }
     }
 }
