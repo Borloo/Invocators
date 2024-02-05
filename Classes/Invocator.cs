@@ -8,7 +8,7 @@ namespace Invocators.Classes
     {
         private int MaximumLife { get; set; }
         private int CurrentLife { get; set; }
-        private List<BaseInvocation> Invocations;
+        private List<BaseInvocation> Invocations { get; }
 
         public Invocator(int maximumLife)
         {

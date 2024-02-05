@@ -17,6 +17,20 @@ namespace Invocators.Classes.Invocations
         }
 
         public override string Name => "Warrior";
+
+        public void MakeAlteration()
+        {
+            this.TotalAttackNumber++;
+            this.CurrentAttackNumber++;
+            Console.WriteLine($"{this.Name}: Total number of actions per turn is increased by 1");
+            Console.WriteLine($"{this.Name}: {this.CurrentAttackNumber} action(s) left to play");
+        }
+
+        public void MakeZoneAttck(Invocator targetInvocator)
+        {
+            Console.WriteLine("1 - Invocator");
+            for (int i = 1; i < targetInvocator.Invocations.Length())
+        }
     }
 
 }
