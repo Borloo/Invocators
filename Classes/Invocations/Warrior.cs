@@ -26,11 +26,6 @@ namespace Invocators.Classes.Invocations
             Console.WriteLine($"{this.Name}: {this.CurrentAttackNumber} action(s) left to play");
         }
 
-        public void MakeZoneAttck(Invocator targetInvocator)
-        {
-            Console.WriteLine("1 - Invocator");
-            for (int i = 1; i < targetInvocator.Invocations.Length())
-        }
     }
 
 }

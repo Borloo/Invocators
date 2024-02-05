@@ -23,7 +23,7 @@ namespace Invocators
 
             // Affichage de l'état après l'attaque
             Console.WriteLine($"Remaining life of the warrior: {warrior.CurrentLife}");
-
+            
             // Attente pour voir les résultats
             Console.ReadLine();
         }
