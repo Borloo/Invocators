@@ -6,15 +6,17 @@ namespace Invocators.Classes
 {
     internal class Invocator
     {
-        private int MaximumLife { get; set; }
-        private int CurrentLife { get; set; }
+        public string Name {  get; set; }
+        public int MaximumLife { get; set; }
+        public int CurrentLife { get; set; }
         public List<BaseInvocation> Invocations { get; }
 
-        public Invocator(int maximumLife)
+        public Invocator(string name, int maximumLife)
         {
-            MaximumLife = maximumLife;
-            CurrentLife = maximumLife;
-            Invocations = new List<BaseInvocation>();
+            this.Name = name;
+            this.MaximumLife = maximumLife;
+            this.CurrentLife = maximumLife;
+            this.Invocations = new List<BaseInvocation>();
         }
 
         public void Summon(BaseInvocation invocation)

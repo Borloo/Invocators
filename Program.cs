@@ -1,5 +1,6 @@
 ﻿using Invocators.Classes;
 using Invocators.Classes.Invocations;
+using Invocators.Services;
 using System;
 
 namespace Invocators
@@ -9,10 +10,10 @@ namespace Invocators
         static void Main(string[] args)
         {
             // Création d'un invocateur
-            Invocator invocator = new Invocator(500);
+            // Invocator invocator = new Invocator(500);
 
             // Invocation d'un guerrier
-            Warrior warrior = new Warrior();
+            /* Warrior warrior = new Warrior();
             Guardian guardian = new Guardian();
             invocator.Summon(warrior);
             invocator.Summon(guardian);
@@ -34,7 +35,9 @@ namespace Invocators
                     Console.WriteLine("Un des deux personnages ne peut plus attaquer");
                     break;
                 }
-           }
+           }*/
+
+           GameService.StartDuelGame();
             
             // Attente pour voir les résultats
             Console.WriteLine("FIN PROGRAMME");
