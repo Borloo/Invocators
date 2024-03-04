@@ -10,7 +10,7 @@ namespace Invocators.Classes.Invocations
 {
     internal class Dealer : BaseInvocation
     {
-        public Dealer()
+        public Dealer(int RoundSummoned = 0)
         {
             Attack = 100;
             Defense = 50;
@@ -20,6 +20,7 @@ namespace Invocators.Classes.Invocations
             CurrentLife = 300;
             TotalAttackNumber = 2;
             CurrentAttackNumber = 2;
+            this.RoundSummoned = RoundSummoned;
         }
 
         public override string Name => "Dealer";

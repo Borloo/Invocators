@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Invocators.Classes;
 
 namespace Invocators.Models
 {
@@ -16,6 +17,11 @@ namespace Invocators.Models
         public int CurrentLife { get; set; }
         public int TotalAttackNumber { get; set; }
         public int CurrentAttackNumber { get; set; }
+        public bool isTargeted = false;
+        public BaseInvocation? TargetInvocation { get; set; }
+        public Invocator? TargetInvocator { get; set; }
+        public int InitiativeThrow = 0;
+        public int RoundSummoned = 0;
 
         public abstract string Name { get; }
 
@@ -40,7 +46,6 @@ namespace Invocators.Models
                 {
                     Console.WriteLine($"{GetType().Name} attack {targetInvocation.GetType().Name} but miss!");
                 }
-                //Console.WriteLine(attackDelta);
                 this.CurrentAttackNumber--;
             }
         }
@@ -54,19 +59,28 @@ namespace Invocators.Models
             }
         }
 
-        private int CalculateAttackRoll()
+        public int CalculateAttackRoll()
         {
             return this.Attack + new Random().Next(1, 101);
         }
 
-        private int CalculateDefenseRoll()
+        public int CalculateDefenseRoll()
         {
             return this.Defense + new Random().Next(1, 101);
         }
 
-        private int CalculateDamage(int attackDelta)
+        public int CalculateDamage(int attackDelta)
         {
             return attackDelta * this.Damages / 100;
+        }
+
+        public bool IsReady(int RoundNumber)
+        {
+            if (this.RoundSummoned != 0)
+            {
+                return this.RoundSummoned != RoundNumber;
+            }
+            return false;
         }
     }
 }

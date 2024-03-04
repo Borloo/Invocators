@@ -4,7 +4,7 @@ namespace Invocators.Classes.Invocations
 {
     internal class Warrior : BaseInvocation
     {
-        public Warrior()
+        public Warrior(int RoundSummoned = 0)
         {
             Attack = 100;
             Defense = 200;
@@ -14,6 +14,7 @@ namespace Invocators.Classes.Invocations
             CurrentLife = 200;
             TotalAttackNumber = 1;
             CurrentAttackNumber = 1;
+            this.RoundSummoned = RoundSummoned;
         }
 
         public override string Name => "Warrior";

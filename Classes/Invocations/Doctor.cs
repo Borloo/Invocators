@@ -10,7 +10,7 @@ namespace Invocators.Classes.Invocations
 {
     internal class Doctor : BaseInvocation
     {
-        public Doctor()
+        public Doctor(int RoundSummoned = 0)
         {
             Attack = 10;
             Defense = 125;
@@ -20,6 +20,7 @@ namespace Invocators.Classes.Invocations
             CurrentLife = 150;
             TotalAttackNumber = 4;
             CurrentAttackNumber = 4;
+            this.RoundSummoned = RoundSummoned;
         }
 
         public override string Name => "Doctor";

@@ -10,7 +10,7 @@ namespace Invocators.Classes.Invocations
 {
     internal class CrazyScientist : BaseInvocation
     {
-        public CrazyScientist()
+        public CrazyScientist(int RoundSummoned = 0)
         {
             Attack = 10;
             Defense = 10;
@@ -20,6 +20,7 @@ namespace Invocators.Classes.Invocations
             CurrentLife = 50;
             TotalAttackNumber = 5;
             CurrentAttackNumber = 5;
+            this.RoundSummoned = RoundSummoned;
         }
 
         public override string Name => "Crazy Scientist";

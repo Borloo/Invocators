@@ -10,7 +10,7 @@ namespace Invocators.Classes.Invocations
 {
     internal class Dragon : BaseInvocation
     {
-        public Dragon()
+        public Dragon(int RoundSummoned = 0)
         {
             Attack = 150;
             Defense = 10;
@@ -20,6 +20,7 @@ namespace Invocators.Classes.Invocations
             CurrentLife = 1000;
             TotalAttackNumber = 1;
             CurrentAttackNumber = 1;
+            this.RoundSummoned = RoundSummoned;
         }
 
         public override string Name => "Dragon";

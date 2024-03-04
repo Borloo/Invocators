@@ -9,7 +9,7 @@ namespace Invocators.Classes.Invocations
 {
     internal class Guardian : BaseInvocation
     {
-        public Guardian() 
+        public Guardian(int RoundSummoned = 0) 
         {
             Attack = 50;
             Defense = 150;
@@ -19,6 +19,7 @@ namespace Invocators.Classes.Invocations
             CurrentLife = 150;
             TotalAttackNumber = 3;
             CurrentAttackNumber = 3;
+            this.RoundSummoned = RoundSummoned;
         }
         public override string Name => "Guardian";
     }

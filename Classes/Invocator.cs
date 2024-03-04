@@ -53,9 +53,40 @@ namespace Invocators.Classes
             }
         }
 
-        private BaseInvocation GetRandomTarget()
+        public BaseInvocation GetRandomTarget()
         {
-            return this.Invocations[0];
+            if (this.Invocations.Count + 1 > 1)
+            {
+                int Random = new Random().Next(this.Invocations.Count);
+                if (Random != 0)
+                {
+                    return this.Invocations[Random];
+                }
+            }
+            return null;
+        }
+
+        public void TakeDamage(int damages)
+        {
+            this.CurrentLife -= damages;
+            if (this.CurrentLife <= 0)
+            {
+                Console.WriteLine($"{this.Name}'s dead!");
+            }
+        }
+
+        public Dictionary<BaseInvocation, int> GetInitiativeScores(int RoundNumber)
+        {
+            Dictionary<BaseInvocation, int> initiativeScores = new();
+            foreach (BaseInvocation invocation in Invocations)
+            {
+                if (invocation.IsReady(RoundNumber))
+                {
+                    invocation.InitiativeThrow = invocation.Initiative + new Random().Next(0, 100);
+                    initiativeScores.Add(invocation, invocation.InitiativeThrow);
+                }
+            }
+            return initiativeScores;
         }
     }
 }
